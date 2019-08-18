@@ -26,6 +26,14 @@ changeNameHandler = (changeName) => {
     ]
   });
 }
+changeEventHandler = (event) => {
+  this.setState({
+    person : [
+      {name: event.target.value, age:30},
+      {name: 'Kumar', age:32}
+    ]
+  });
+}
 
 // const changeNameHandler = () => {
 //   console.log('Was clicked');
@@ -46,8 +54,8 @@ render() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.changeNameHandler.bind(this, 'rrrr')}>Click</button>
-        <Person name={this.state.person[0].name} click={this.changeNameHandler.bind(this, 'kumar')}>hi</Person>
+        <button onClick={() => this.changeNameHandler('I am')}>Click</button>
+        <Person name={this.state.person[0].name} click={this.changeNameHandler.bind(this, 'kumar')} change={this.changeEventHandler}>hi</Person>
         <Person name={this.state.person[1].name}></Person>
       </header>
     </div>
